@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lakshmi Prasanna Avula - Full-stack Web Developer</title>
+    <link rel="stylesheet" href="./styles.css">
+
+    <!-- <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6366f1;
+            --secondary: #f59e0b;
+            --dark: #0f172a;
+            --gray: #64748b;
+            --light: #f8fafc;
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --glow: 0 0 30px rgba(99, 102, 241, 0.3);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: var(--light);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(248, 250, 252, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(99, 102, 241, 0.1);
+        }
+
+        nav.scrolled {
+            background: rgba(248, 250, 252, 0.98);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: var(--dark);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23ffffff" fill-opacity="0.1"><circle cx="30" cy="30" r="4"/></g></svg>');
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) translateX(0px); }
+            25% { transform: translateY(-20px) translateX(10px); }
+            50% { transform: translateY(0px) translateX(-10px); }
+            75% { transform: translateY(10px) translateX(5px); }
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 20px;
+            line-height: 1.1;
+            animation: slideInLeft 1s ease-out;
+        }
+
+        .hero-text .subtitle {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 30px;
+            animation: slideInLeft 1s ease-out 0.2s both;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 40px;
+            animation: slideInLeft 1s ease-out 0.4s both;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            animation: slideInLeft 1s ease-out 0.6s both;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--primary);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .profile-photo {
+            position: relative;
+            animation: slideInRight 1s ease-out 0.3s both;
+        }
+
+        .profile-photo img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 8px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-photo:hover img {
+            transform: scale(1.05);
+        }
+
+        .profile-photo::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: -20px;
+            bottom: -20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.5; }
+        }
+
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        /* Skills Section */
+        .skills {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .skill-item {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: 20px;
+            background: linear-gradient(145deg, #f8fafc, #e2e8f0);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.2);
+        }
+
+        .skill-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .skill-name {
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+
+        .skill-level {
+            font-size: 14px;
+            color: var(--gray);
+        }
+
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .about-text {
+            font-size: 18px;
+            line-height: 1.8;
+            color: var(--gray);
+        }
+
+        .about-details {
+            display: grid;
+            gap: 40px;
+        }
+
+        .detail-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .detail-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .detail-card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .detail-card .meta {
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        /* Section Headers */
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 40px;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .profile-photo img {
+                width: 250px;
+                height: 250px;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .section-header h2 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .profile-photo img {
+                width: 200px;
+                height: 200px;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+                gap: 20px;
+            }
+        }
+    </style> -->
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">FWD</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="certificate">Certificates</a></li> 
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Lakshmi Prasanna Avula</h1>
+                    <p class="subtitle">Full-Stack Web Developer</p>
+                    <p class="subtitle">Code the future. Shape the web</p>
+                    <div class="cta-buttons">
+                        <a href="#projects" class="btn btn-primary">View My Work</a>
+                        <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                    </div>
+                </div>
+                <div class="profile-photo">
+                    <img src="./PHOTO.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Technical Skills</h2>
+                <p>A comprehensive toolkit for building modern web applications</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-item fade-in">
+                    <div class="skill-name">Python</div>
+                    
+                </div>
+                <div class="skill-item fade-in">
+                    <div class="skill-name">Deep Learning </div>
+                    
+                </div>
+                <div class="skill-item fade-in">
+                    <div class="skill-name">Machine Learning </div>
+                    
+                </div>
+                <div class="skill-item fade-in">
+                    <div class="skill-name">HTML/CSS/JS</div>
+                    
+                </div>
+                <div class="skill-item fade-in">
+                    <div class="skill-name">SQL </div>
+                    
+                </div>
+                <div class="skill-item fade-in">
+                    <div class="skill-name">MongoDB</div>
+                   
+                </div>
+                <div class="skill-item fade-in">
+                    <div class="skill-name">DSA</div>
+                 
+                </div>
+                <div class="skill-item fade-in">
+                    <div class="skill-name">GIT,GITHUB</div>
+                   
+                </div>
+                <div class="skill-item fade-in">
+                    <div class="skill-name">Data Science</div>
+                   
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>About Me</h2>
+                <p>Passionate developer with a love creating a web apps</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text fade-in">
+                    <p>I'm a dedicated full-stack web developer with the bengining of  building scalable web applications and user interfaces. My journey began with a Computer Science degree from KIET College, where I discovered my passion for combining technical problem-solving with creativing Web apps.</p>
+                    
+                    <p>I am Specialize in modern full stack web developer . i am intrested in developing a web applications, web apps, gaming apps. i am intrested in developing a real-time projects</p> 
+                    
+                    <p>I believe in writing clean, maintainable code and staying current with industry best practices. My goal is to create web applications for gaming, websites that not only function flawlessly but also delight users and drive business growth.</p>
+                </div>
+                <div class="about-details">
+                    <div class="detail-card fade-in">
+                        <h3>🎓 Education</h3>
+                        <div class="meta">KIET KAKINADA • 2022-2025</div>
+                        <p>Bachelor of Science in Computer Science</p>
+                        <p>Specialized in Artifical Intelligence & Data science, DSA,Full-stack Web developer. Graduated Computer Science Engineering With a 7.6 CGPA</p>
+                    </div>
+                    <div class="detail-card fade-in">
+                        <h3>Internship </h3>
+                        <div class="meta">Full-stack web developer</div>
+                        <p><strong>CODECRAFT INFOTECH</strong></p>
+                        <p>A **Full Stack Web Developer** is a programmer skilled in both **front-end** (client-side) and **back-end** (server-side) development. They work with technologies like **HTML, CSS, JavaScript** for the front end and **Node.js, Python, PHP, or Java** with databases like **MySQL or MongoDB** for the back end. Full stack developers can build complete web applications, from designing user interfaces to managing databases and server logic.
+ I have done real time projects on web gaming, web development, web apps</p>
+                        
+                        <div class="meta" style="margin-top: 20px;">Machine Learning </div>
+                        <p><strong>Intrenational Institute of Information Technology </strong></p>
+                        <p> Machine Learning (ML) is a branch of Artificial Intelligence (AI) that enables computers to learn from data and make decisions or predictions without being explicitly programmed for every task.Built project on Machine learning that are IPL SCORE PREDICTION, AUTOMATIC ATTENDENCE SYSTEM, EMOTION BASED ON MUSIC RECOMMENDATION SYSTEM </p>
+                    </div>
+                    <div class="detail-card fade-in">
+                        <h3>🏆 Achievements</h3>
+                        <ul style="margin-top: 10px; padding-left: 20px;">
+                            <li>Obtained A grade in FMML program oraganised by IIIT-H</li>
+                            <li>Obtained A grade in both B-certificate,C- certificate conducted by 18(A) BN KAKINADA GROUP </li>
+                            <li>Participated in MOC content by INTRENATIONAL TOASTMASTERS CLUB</li>
+                            <li>CONTRIBUTED REAL-TIME PROJECT Which is useful to every industry at present generation-- Automatic Attendence System by Using Face</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Projects Section -->
+<section id="projects" class="projects">
+  <div class="container">
+    <h2>My Projects</h2>
+    <div class="project-list">
+      <div class="project">
+        <h3>Portfolio Website</h3>
+        <p>A personal portfolio built with HTML, CSS, and JavaScript showcasing my skills and projects.</p>
+       
+      </div>
+      <div class="project">
+        <h3>Emotion-Based Music Recommendation System</h3>
+        <p>This project involves buliding a smart music recommendation system that tailors playlists based on the urer's current emotional state.  and technologies HTML,CSS,Flask,CNN,Open CV</p>
+        
+      </div>
+      <div class="project">
+        <h3>Sentiment Analysis</h3>
+        <p>Built a sentiment analysis system that classifies text data into sentiment categories like positive, negative and neutral and technologies used in python,HTML,CSS , FLASK</p>
+        
+      </div>
+      <div class="project">
+        <h3>Automatic Attendance System</h3>
+        <p>created a real-time AI-Powered attendence system that uses facial recognition  and technologies used in HTML,CSS,JAVASCRIPT, OpenCV, Dlib, Mediapipes, Face_recognition,python</p>
+       
+      </div>
+    </div>
+  </div>
+</section>
+</section>
+
+<section id="certificates" class="certificates-section">
+  <div class="container">
+    <h2 class="section-title">My Certificates</h2>
+    <div class="certificates-grid">
+      <div class="certificate-card">
+        <img src="./certificate-2.jpg" alt="Certificate 1">
+        <p>Machine Learning</p>
+      </div>
+      <div class="certificate-card">
+        <img src="./certificate-1.jpg" alt="Certificate 2">
+        <p>Web Full Stack Developer</p>
+      </div>
+    </div>
+
+
+<!-- Contact Section -->
+<section id="contact" class="contact">
+  <div class="container">
+    <h2>Get In Touch</h2>
+    <form action="#" method="POST" class="contact-form">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit" class="btn btn-primary">Send Message</button>
+    </form>
+  </div>
+
+  </div>
+</section>
+
+
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add stagger effect to skills grid
+        const skillItems = document.querySelectorAll('.skill-item');
+        skillItems.forEach((item, index) => {
+            item.style.transitionDelay = `${index * 0.1}s`;
+        });
+
+        // Mobile menu toggle (basic implementation)
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Typing effect for hero subtitle
+        const subtitle = document.querySelector('.hero-text .subtitle');
+        const text = subtitle.textContent;
+        subtitle.textContent = '';
+        
+        let i = 0;
+        const typeWriter = () => {
+            if (i < text.length) {
+                subtitle.textContent += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, 100);
+            }
+        };
+        
+        setTimeout(typeWriter, 1000);
+
+        // Parallax effect for hero background
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            const rate = scrolled * -0.5;
+            hero.style.transform = `translateY(${rate}px)`;
+        });
+    </script>
+</body>
+</html>
